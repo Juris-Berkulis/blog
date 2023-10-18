@@ -6,13 +6,7 @@ import { useDate } from '@/composables/date';
 const props = defineProps({
     post: {
         required: false,
-        type: {
-            id: `post-${string}`,
-            title: string,
-            shortDescription: string,
-            longDescription: string,
-            date: string,
-        },
+        type: Object,
     },
     togglePostEditing: {
         required: false,
