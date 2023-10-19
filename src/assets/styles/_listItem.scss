@@ -1,0 +1,10 @@
+.list-item {
+    cursor: default;
+    box-shadow: $bsh-bg;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+        opacity: 0.8;
+        box-shadow: $bsh-bg-hover;
+    }
+}

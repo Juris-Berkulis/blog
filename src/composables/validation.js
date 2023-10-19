@@ -7,7 +7,7 @@ export const useValidation = () => {
     const maxLengthForAuthorName = 50;
     const maxLengthForAuthorEmail = 50;
     const maxLengthForCommentText = 255;
-    const regExpForFullName = /^[a-z]{1,}@[a-z]{1,10}\.[a-z]{1,8}$/i;
+    const regExpForEmail = /^[a-z]{1,}@[a-z]{1,10}\.[a-z]{1,8}$/i;
     const textForRequiredFieldError = 'Поле не заполненно';
     const textForRegExpError = 'Неверный формат';
     const textForEmailError = `${textForRegExpError}: example@example.example`;
@@ -74,7 +74,7 @@ export const useValidation = () => {
         maxLengthForAuthorName,
         maxLengthForAuthorEmail,
         maxLengthForCommentText,
-        regExpForFullName,
+        regExpForEmail,
         textForRequiredFieldError,
         textForEmailError,
         isShowFormErrors,

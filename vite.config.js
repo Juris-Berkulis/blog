@@ -21,6 +21,8 @@ export default defineConfig({
       scss: {
         additionalData: `
           @import "./src/assets/styles/_variables.scss";
+          @import "./src/assets/styles/_form.scss";
+          @import "./src/assets/styles/_listItem.scss";
         `
       },
     },
