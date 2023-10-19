@@ -22,7 +22,10 @@ const {
             <span class="comment__author">{{ comment.authorName }}</span>
             <a class="comment__email" :href="`mailto:${comment.authorEmail}`">{{ comment.authorEmail }}</a>
         </div>
-        <button class="comment__delete button button_animation" @click="() => deleteCommentFromPost(postId, comment.id)">Удалить</button>
+        <button 
+            class="comment__delete button button_animation" 
+            @click="() => deleteCommentFromPost(postId, comment.id)"
+        >Удалить</button>
     </div>
     <p class="comment__text">{{ comment.text }}</p>
 </div>

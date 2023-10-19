@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import PostsForm from '@/components/PostsForm.vue';
 import { usePostsStore } from '@/stores/posts';
 import { useCommentsStore } from '@/stores/comments';
-import PostsForm from '@/components/PostsForm.vue';
 import { useDate } from '@/composables/date';
 
 defineProps({
@@ -27,10 +27,21 @@ const togglePostEditing = () => {
 <template>
 <article class="post list-item" @click="$router.push(`posts/${post.id}`)">
     <div class="post__btns">
-        <button class="post__btn post__btn_edit button button_animation" @click.stop="togglePostEditing">{{ isEditing ? 'Отмена' : 'Редактировать' }}</button>
-        <button class="post__btn post__btn_delete button button_animation" @click.stop="deletePost(post)">Удалить</button>
+        <button 
+            class="post__btn post__btn_edit button button_animation" 
+            @click.stop="togglePostEditing"
+        >{{ isEditing ? 'Отмена' : 'Редактировать' }}</button>
+        <button 
+            class="post__btn post__btn_delete button button_animation" 
+            @click.stop="deletePost(post)"
+        >Удалить</button>
     </div>
-    <PostsForm class="post__form" v-if="isEditing" @click.stop :post="post" :togglePostEditing="togglePostEditing" />
+    <PostsForm 
+        class="post__form" 
+        v-if="isEditing" 
+        @click.stop :post="post" 
+        :togglePostEditing="togglePostEditing" 
+    />
     <div class="post__main" v-else>
         <h2 class="post__title">{{ post.title }}</h2>
         <p class="post__description">{{ post.shortDescription }}</p>
