@@ -8,10 +8,13 @@ const {
 </script>
 
 <template>
-<div>
-    <PostsListItem v-for="post of postsList" :key="post.id" :post="post" />
+<div class="post-list">
+    <PostsListItem class="post-list__item" v-for="post of postsList" :key="post.id" :post="post" />
 </div>
 </template>
 
 <style scoped lang="scss">
+.post-list__item {
+    margin-bottom: 30px;
+}
 </style>

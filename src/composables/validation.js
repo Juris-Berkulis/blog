@@ -13,7 +13,7 @@ export const useValidation = () => {
     const textForEmailError = `${textForRegExpError}: example@example.example`;
     const textForMaxLengthError = (minLength) => `Максимальная длина ${minLength} символов`;
 
-    const isShowFormErrors = ref(false);
+    const isShowFormErrors = ref(true);
 
     const requiredField = (value) => {
         return !!value

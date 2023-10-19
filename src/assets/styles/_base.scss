@@ -5,3 +5,83 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button, 
+input, 
+textarea {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  box-shadow: 0 5px 5px 5px #00000044;
+  transition: all 0.4s linear, box-shadow 0.1s linear;
+
+  &:active {
+    box-shadow: 0 3px 3px 3px #00000044;
+  }
+
+  &_animation {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      height: 100%;
+      width: 100%;
+      background-color: #00000022;
+      transition: all 0.2s linear;
+    }
+  
+    &:hover::after {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+textarea, 
+input {
+  border: none;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: currentColor;
+  }
+}
+
+textarea {
+  resize: none;
+}

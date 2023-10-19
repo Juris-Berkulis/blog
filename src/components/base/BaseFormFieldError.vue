@@ -12,7 +12,7 @@ defineProps({
 
 <style scoped lang="scss">
 .error-text {
-    // position: absolute;
+    position: absolute;
     top: calc(100% + 4px);
     left: 0;
     color: #ff5858;

@@ -97,18 +97,67 @@ watchFieldObj(postFieldObj, postValidatedObj);
 </script>
 
 <template>
-<form @submit.prevent="submit" @input="isShowFormErrors = true">
-    <BaseFormFieldWrapper v-for="fieldValue, field of postFieldObj" :key="field" :error="fieldValue.fieldError">
-        <BaseFormField
+<form class="form" @submit.prevent="submit" @input="isShowFormErrors = true">
+    <BaseFormFieldWrapper 
+        class="form__field-wrapper" 
+        v-for="fieldValue, field of postFieldObj" 
+        :key="field" 
+        :error="fieldValue.fieldError"
+    >
+        <BaseFormField 
+            class="form__field"
+            :class="{form__field_error: fieldValue.fieldError}"
             v-model:inputedValue="fieldValue.fieldValue" 
-            :class="{form__input_error: fieldValue.fieldError}"
             :label="fieldValue.label" 
             :fieldType="fieldValue.fieldType"
         />
     </BaseFormFieldWrapper>
-    <button type="submit">Добавить</button>
+    <button class="form__btn button button_animation" type="submit">Добавить</button>
 </form>
 </template>
 
 <style scoped lang="scss">
+$field-color: var(--white, #ffffff);
+$field-bc: rgba(255, 255, 255, 0.1);
+$field-trans: all 0.2s linear;
+$field-bc-focus: rgba(255, 255, 255, 0.2);
+$field-color-error: rgba(236, 63, 63, 1);
+$field-bc-error: rgba(236, 63, 63, 0.2);
+
+.form__field-wrapper {
+    margin-bottom: 40px;
+}
+
+.form__field {
+    width: 100%;
+    color: $field-color;
+    background-color: $field-bc;
+    transition: $field-trans;
+
+    &::placeholder {
+        color: #cccccc;
+    }
+    
+    &:focus {
+        background-color: $field-bc-focus;
+    }
+
+    &_error:focus, 
+    &_error {
+        color: $field-color-error;
+        background-color: $field-bc-error;
+
+        &::placeholder {
+            color: rgba(236, 63, 63, 0.5);
+        }
+    }
+}
+
+.form__btn {
+    display: block;
+    margin: 0 auto;
+    padding: 16px 32px;
+    color: var(--white, #ffffff);
+    background-color: var(--light_green, #8fbc8f);
+}
 </style>

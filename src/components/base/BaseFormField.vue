@@ -39,10 +39,13 @@ const changeInputedValue = (event) => {
 <style scoped lang="scss">
 .field {
     padding: 12px 16px;
-    font-family: Montserrat;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+
+    &_textarea {
+        height: 80px;
+    }
 }
 </style>
