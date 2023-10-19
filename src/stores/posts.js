@@ -1,11 +1,17 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import { useCommentsStore } from '@/stores/comments';
+import { useLocalStorage } from '@/composables/localStorage';
 
 export const usePostsStore = defineStore('posts', () => {
     const { deleteAllCommentsFromPost } = useCommentsStore();
 
-    const postsList = ref([]);
+    const { setIntoLocalStorage, getFromLocalStorage } = useLocalStorage();
+
+    const postsListKey = 'postsListKey';
+    const postsList = ref(getFromLocalStorage(postsListKey) || []);
+
+    setIntoLocalStorage(postsListKey, postsList.value);
 
     const getPostIndex = (postId) => {
         return postsList.value.findIndex((post) => post.id === postId)

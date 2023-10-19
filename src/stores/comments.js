@@ -1,8 +1,14 @@
-import { defineStore } from "pinia";
 import { ref } from "vue";
+import { defineStore } from "pinia";
+import { useLocalStorage } from '@/composables/localStorage';
 
 export const useCommentsStore = defineStore('comments', () => {
-    const commentsObj = ref({});
+    const { setIntoLocalStorage, getFromLocalStorage } = useLocalStorage();
+
+    const commentsListKey = 'commentsListKey';
+    const commentsObj = ref(getFromLocalStorage(commentsListKey) || {});
+
+    setIntoLocalStorage(commentsListKey, commentsObj.value);
 
     const getCommentsListForPost = (postId) => {
         if (!commentsObj.value[postId]) {
